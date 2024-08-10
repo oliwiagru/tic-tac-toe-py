@@ -24,7 +24,6 @@ def render_board(board):
 
 def coordinates_o(board, size):
     print('Please enter row and and column you want to choose')
-    # try:
     row = int(input('row: '))
     while row > size:
         print(f'Enter the number from the range from 1 to {size}!')
@@ -38,8 +37,6 @@ def coordinates_o(board, size):
         row = int(input('row: '))
         column = int(input('column: '))
     board[row - 1][column - 1] = 'O'
-    # except ValueError:
-    #     print('Invalid value. Please enter a number.')
 
 
 def coordinates_x(board, size):
