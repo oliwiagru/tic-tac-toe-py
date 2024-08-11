@@ -1,4 +1,5 @@
 import datetime
+import json
 import random
 
 print("          Tic Tac Toe")
@@ -99,8 +100,11 @@ def winning(board):
 tournament = []
 
 
-def save_round_data(nickname, winner, time, board):
-    tournament.append({'nickname': nickname, 'symbol': winner, 'time': time, 'board': board})
+
+def save_round_data(nickname, winner, board):
+    current_time = datetime.datetime.now().time().isoformat()
+    print(current_time)
+    tournament.append({'nickname': nickname, 'symbol': winner, 'time': current_time, 'board': board})
 
 
 for i in range(rounds_number):
@@ -134,4 +138,6 @@ for i in range(rounds_number):
             is_game_running = False
             print()
 
-print(tournament)
+with open('./data.json', 'w') as f:
+    fileData = json.dumps(tournament)
+    f.write(fileData)
